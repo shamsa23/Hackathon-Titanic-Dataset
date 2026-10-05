@@ -2,15 +2,13 @@
 
 *Built at the International Women's Day Hackathon 2026 (QMUL) · Theme: Mathematics & Computing for Real-World Problems*
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shamsa23/Hackathon-Titanic-Dataset/blob/main/Option_5.ipynb)
-
 ## Motivation ⚙️
 
 ### Chosen data-related problem
 
 > **"Which features most strongly predict whether a passenger survived the Titanic, and how accurately can machine learning models predict it?"**
 
-The sinking of the Titanic is one of the most studied datasets in machine learning. Survival was not random: who you were (gender, age, ticket class) shaped your chances. This project uses supervised classification to find which passenger features matter most, and uses explainability (SHAP) to show *why* the best model makes its predictions.
+The sinking of the Titanic is one of the most studied datasets in machine learning. Survival was not random: who you were (gender, age, ticket class) shaped your chances. This project uses supervised classification to find which passenger features matter most, and uses explainability (SHAP) to show why the best model makes its predictions.
 
 ### Chosen dataset
 
@@ -24,15 +22,15 @@ The dataset used was the [Kaggle Titanic Competition](https://www.kaggle.com/com
 | **Random Forest** | Captures non-linear patterns and interactions, and is robust to overfitting |
 | **XGBoost** | Gradient boosting, often the strongest model on tabular data |
 
-Models were trained on an **80:20 train-test split** (712 train / 179 test, `random_state=42`) and compared using **accuracy, ROC-AUC and confusion matrices**.
+Models were trained on an 80:20 train-test split (712 train / 179 test, `random_state=42`) and compared using accuracy, ROC-AUC and confusion matrices.
 
 ## Project Objectives 🎯
 
 1. Explore the data (EDA): survival rates by gender, class and age group.
-2. Engineer new features: passenger **title** and **family size**.
+2. Engineer new features: passenger title and family size.
 3. Train and compare three classifiers.
 4. Evaluate with accuracy, ROC-AUC and confusion matrices.
-5. Use **SHAP** to explain which features drive the best model's predictions.
+5. Use SHAP to explain which features drive the best model's predictions.
 
 ## Environment 👩🏻‍💻
 
@@ -58,9 +56,11 @@ Models were trained on an **80:20 train-test split** (712 train / 179 test, `ran
 
 ```
 .
-├── Option_5.ipynb      # Full analysis: EDA, feature engineering, modelling, SHAP
-├── train.csv           # Kaggle Titanic training data
-└── README.md
+├── .gitattributes
+├── Option_5.ipynb
+├── README.md
+├── test.txt
+└── test2.txt
 ```
 
 ## Method 🧪
@@ -69,7 +69,7 @@ Models were trained on an **80:20 train-test split** (712 train / 179 test, `ran
 |---|---|
 | **EDA** | Survival rates by gender, class and age group; missing-value heatmap |
 | **Cleaning** | Filled `Age` with the median, `Embarked` with the mode, dropped `Cabin` (mostly missing) |
-| **Feature engineering** | Extracted **Title** from names (Mr, Mrs, Miss, Rare), created **FamilySize**, binned **AgeGroup** |
+| **Feature engineering** | Extracted Title from names (Mr, Mrs, Miss, Rare), created FamilySize, binned AgeGroup |
 | **Encoding** | One-hot encoded Sex, Embarked, Title, AgeGroup and Pclass |
 | **Modelling** | Logistic Regression, Random Forest, XGBoost |
 | **Explainability** | SHAP summary plots for the Random Forest |
@@ -78,9 +78,9 @@ Models were trained on an **80:20 train-test split** (712 train / 179 test, `ran
 
 | Model | Test Accuracy | ROC-AUC |
 |---|---|---|
-| Logistic Regression | 0.7933 | 0.8799 |
-| **Random Forest** | **0.8380** | **0.9055** |
-| XGBoost | 0.8268 | 0.8979 |
+| **Logistic Regression** | 0.7933 | 0.8799 |
+| **Random Forest** | 0.8380 | 0.9055 |
+| **XGBoost** | 0.8268 | 0.8979 |
 
 - **Random Forest performed best** on both accuracy and ROC-AUC.
 - XGBoost was a close second, and Logistic Regression was the weakest but still a solid baseline.
